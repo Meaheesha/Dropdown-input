@@ -34,7 +34,18 @@ class App extends Component {
     console.log(Location.cities);
     this.props.applyResult(Location);
   }
-
+  listView(data, index) {
+    return (
+      <div className="row">
+        <div className="col-md-10">
+          <li key={index} className="list-group-item clearfix">
+            Country: {data.countries} State: {data.states} City:
+            {data.cities}
+          </li>
+        </div>
+      </div>
+    );
+  }
   render() {
     //let name;
     return (
@@ -56,15 +67,19 @@ class App extends Component {
             <br />
             <input type="submit" />
           </form>
+
+          <ul className="list-group">
+            {this.props.Locations.map((contact, i) =>
+              this.listView(contact, i)
+            )}
+          </ul>
         </div>
       </div>
     );
   }
 }
 const mapStateToProps = state => ({
-  countries: state.Locations.countries,
-  states: state.Locations.states,
-  cities: state.Locations.cities
+  Locations: state.Locations
 });
 const mapDispatchToProps = dispatch => {
   return {

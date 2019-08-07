@@ -1,0 +1,2 @@
+export const GET_ALL_RESULTS = "GET_ALL_RESULTS";
+export const APPLY_RESULT = "APPLY_RESULT";
